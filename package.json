@@ -1,0 +1,11 @@
+{
+  "name": "factflow",
+  "version": "1.0.0",
+  "description": "FactFlow - Multi-tenant factory invoice tracking",
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install --include=dev",
+    "build": "cd frontend && npm run build && cp -r dist ../backend/public",
+    "start": "cd backend && node src/server.js"
+  }
+}
