@@ -29,14 +29,20 @@ app.use(helmet({
 
 // CORS configuration
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',').map(o => o.trim());
+// Auto-include FRONTEND_URL so CORS always allows the deployed frontend
+if (process.env.FRONTEND_URL && !allowedOrigins.includes(process.env.FRONTEND_URL.trim())) {
+  allowedOrigins.push(process.env.FRONTEND_URL.trim());
+}
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow same-origin requests (origin is undefined for same-origin)
-    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
+    // No origin = same-origin or non-browser request — always allow
+    if (!origin) return callback(null, true);
+    // Check allowed list
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    // In development, allow everything
+    if (process.env.NODE_ENV !== 'production') return callback(null, true);
+    console.warn('CORS blocked origin:', origin, '| Allowed:', allowedOrigins);
+    callback(new Error('Not allowed by CORS'));
   },
   credentials: true
 }));
