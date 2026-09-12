@@ -2,12 +2,21 @@ import Tenant from '../models/Tenant.js';
 import ApiError from '../utils/apiError.js';
 import asyncHandler from '../utils/asyncHandler.js';
 
+// Platform domains where the first part is NOT a tenant slug
+// e.g. indigo-eagle-118056.hostingersite.com → NOT a tenant
+const PLATFORM_DOMAINS = ['hostingersite.com', 'herokuapp.com', 'vercel.app', 'netlify.app'];
+
 /**
  * Tenant resolution middleware
  * Resolves tenant from x-tenant-slug header (local dev) or subdomain (prod)
  * Attaches resolved tenant object to req.tenant
  */
 export const tenantMiddleware = asyncHandler(async (req, res, next) => {
+  // Skip tenant resolution for non-API routes (static files, React SPA)
+  if (!req.path.startsWith('/api')) {
+    return next();
+  }
+
   // Check for header first (local dev / explicit override)
   let slug = req.headers['x-tenant-slug'];
 
@@ -15,7 +24,11 @@ export const tenantMiddleware = asyncHandler(async (req, res, next) => {
   if (!slug && req.headers.host) {
     const host = req.headers.host.split(':')[0]; // remove port
     const isIP = /^\d+\.\d+\.\d+\.\d+$/.test(host) || host === 'localhost';
-    if (!isIP) {
+    
+    // Check if this is a platform domain (not a tenant subdomain)
+    const isPlatformDomain = PLATFORM_DOMAINS.some(pd => host.endsWith(pd));
+    
+    if (!isIP && !isPlatformDomain) {
       const parts = host.split('.');
       // E.g. kaleem.factflow.app -> parts = ['kaleem', 'factflow', 'app']
       // Avoid resolving localhost or main domain as tenant
@@ -73,3 +86,4 @@ export const tenantMiddleware = asyncHandler(async (req, res, next) => {
 });
 
 export default tenantMiddleware;
+

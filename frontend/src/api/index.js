@@ -35,15 +35,15 @@ api.interceptors.request.use(
     const isIP = /^\d+\.\d+\.\d+\.\d+$/.test(hostname) || hostname === 'localhost' || hostname === '127.0.0.1';
 
     if (!config.headers['x-tenant-slug']) {
-      if (!isIP) {
+      // Don't extract subdomain from platform domains
+      const platformDomains = ['hostingersite.com', 'herokuapp.com', 'vercel.app', 'netlify.app'];
+      const isPlatformDomain = platformDomains.some(pd => hostname.endsWith(pd));
+      
+      if (!isIP && !isPlatformDomain) {
         const parts = hostname.split('.');
         if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api') {
           config.headers['x-tenant-slug'] = parts[0].toLowerCase();
-        } else {
-          config.headers['x-tenant-slug'] = 'kaleem';
         }
-      } else {
-        config.headers['x-tenant-slug'] = 'kaleem';
       }
     }
 

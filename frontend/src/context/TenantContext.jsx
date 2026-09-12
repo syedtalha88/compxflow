@@ -7,7 +7,12 @@ export function TenantProvider({ children }) {
     // 1. Check subdomain from window.location.hostname
     const host = window.location.hostname;
     const parts = host.split('.');
-    if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'localhost') {
+    
+    // Don't extract subdomain from platform domains (e.g. indigo-eagle-118056.hostingersite.com)
+    const platformDomains = ['hostingersite.com', 'herokuapp.com', 'vercel.app', 'netlify.app'];
+    const isPlatformDomain = platformDomains.some(pd => host.endsWith(pd));
+    
+    if (!isPlatformDomain && parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'localhost') {
       return parts[0].toLowerCase();
     }
 
@@ -16,7 +21,11 @@ export function TenantProvider({ children }) {
     const paramSlug = params.get('tenant');
     if (paramSlug) return paramSlug.toLowerCase();
 
-    // 3. Fallback for local development
+    // 3. Check localStorage for remembered tenant
+    const saved = localStorage.getItem('factflow_tenant_slug');
+    if (saved) return saved;
+
+    // 4. Fallback for local development
     return 'kaleem';
   });
 
