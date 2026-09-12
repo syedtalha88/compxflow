@@ -41,7 +41,7 @@ api.interceptors.request.use(
       
       if (!isIP && !isPlatformDomain) {
         const parts = hostname.split('.');
-        if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api') {
+        if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'app') {
           config.headers['x-tenant-slug'] = parts[0].toLowerCase();
         }
       }
