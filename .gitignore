@@ -8,7 +8,6 @@ node_modules/
 
 # Build output
 dist/
-backend/public/
 build/
 
 # IDE / Editor
