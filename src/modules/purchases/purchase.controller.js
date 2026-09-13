@@ -53,7 +53,9 @@ export const getPurchases = asyncHandler(async (req, res) => {
     }
     if (endDate) {
       const end = new Date(endDate);
-      end.setHours(23, 59, 59, 999);
+      if (!endDate.includes('T')) {
+        end.setHours(23, 59, 59, 999);
+      }
       query.createdAt.$lte = end;
     }
   }

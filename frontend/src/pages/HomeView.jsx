@@ -48,18 +48,20 @@ export function HomeView({ session, onLogout }) {
   const role = session.role || 'admin';
   const isAdmin = role === 'admin';
 
-  // Compute Today's Date String for filtering
-  const d = new Date();
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  const todayDateStr = `${year}-${month}-${day}`;
+  // Compute Today's Date Strings for filtering (Local Time bounds)
+  const dStart = new Date();
+  dStart.setHours(0, 0, 0, 0);
+  const startDateStr = dStart.toISOString();
+
+  const dEnd = new Date();
+  dEnd.setHours(23, 59, 59, 999);
+  const endDateStr = dEnd.toISOString();
 
   // Load Invoices
   const loadInvoices = async () => {
     setLoading(true);
     try {
-      const res = await fetchInvoices({ status: invStatusFilter, search: invSearchTerm, startDate: todayDateStr, endDate: todayDateStr, slug });
+      const res = await fetchInvoices({ status: invStatusFilter, search: invSearchTerm, startDate: startDateStr, endDate: endDateStr, slug });
       if (res.success) setInvoices(res.data);
     } catch (err) {
       console.error('Failed to load invoices:', err);
@@ -72,7 +74,7 @@ export function HomeView({ session, onLogout }) {
   const loadPurchases = async () => {
     setLoading(true);
     try {
-      const res = await fetchPurchases({ status: purStatusFilter, search: purSearchTerm, startDate: todayDateStr, endDate: todayDateStr, slug });
+      const res = await fetchPurchases({ status: purStatusFilter, search: purSearchTerm, startDate: startDateStr, endDate: endDateStr, slug });
       if (res.success) setPurchases(res.data);
     } catch (err) {
       console.error('Failed to load purchases:', err);
@@ -85,7 +87,7 @@ export function HomeView({ session, onLogout }) {
   const loadExpenses = async () => {
     setLoading(true);
     try {
-      const res = await fetchExpenses({ category: expCategoryFilter, search: expSearchTerm, startDate: todayDateStr, endDate: todayDateStr, slug });
+      const res = await fetchExpenses({ category: expCategoryFilter, search: expSearchTerm, startDate: startDateStr, endDate: endDateStr, slug });
       if (res.success) setExpenses(res.data);
     } catch (err) {
       console.error('Failed to load expenses:', err);
