@@ -29,7 +29,7 @@ export const extractFromImage = asyncHandler(async (req, res) => {
       cloudinaryResult = await new Promise((resolve, reject) => {
         const uploadStream = cloudinary.uploader.upload_stream(
           {
-            folder: `factflow/${tenantId}/${type}s`,
+            folder: `compxflow/${tenantId}/${type}s`,
             allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
             transformation: [
               { quality: 'auto', fetch_format: 'auto' },

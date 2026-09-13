@@ -128,7 +128,7 @@ export default function TenantListPage() {
                     className="flex-1 px-3 py-2.5 text-sm rounded-xl border border-slate-200 focus:ring-2 focus:ring-violet-500 focus:outline-none font-bold lowercase"
                     required
                   />
-                  <span className="text-xs text-slate-400 font-semibold shrink-0">.factflow.app</span>
+                  <span className="text-xs text-slate-400 font-semibold shrink-0">.compxflow.com</span>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">

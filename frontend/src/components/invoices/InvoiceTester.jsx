@@ -175,7 +175,7 @@ export function InvoiceTester() {
       {/* Header */}
       <div className="border-b border-gray-100 pb-4">
         <h2 className="text-xl font-bold text-primary flex items-center gap-2">
-          <span>🧾</span> FactFlow Invoice & Payment Tester (Phase 4)
+          <span>🧾</span> CompXFlow Invoice & Payment Tester (Phase 4)
         </h2>
         <p className="text-xs text-gray-500 mt-1">
           Test Invoice CRUD, Duplicate Bill checks, Member Role amount hiding, and Atomic Payments.
@@ -193,13 +193,13 @@ export function InvoiceTester() {
 
         <div className="flex gap-2">
           <button
-            onClick={() => handleAuth('kaleem@factflow.app', 'Password123!')}
+            onClick={() => handleAuth('kaleem@compxflow.com', 'Password123!')}
             className="px-3 py-1.5 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary-dark transition"
           >
             Login as ADMIN
           </button>
           <button
-            onClick={() => handleAuth('worker@factflow.app', 'Password123!')}
+            onClick={() => handleAuth('worker@compxflow.com', 'Password123!')}
             className="px-3 py-1.5 bg-gray-700 text-white text-xs font-bold rounded-lg hover:bg-gray-800 transition"
           >
             Login as MEMBER (Amounts Hidden)

@@ -22,7 +22,7 @@ export function TenantProvider({ children }) {
     if (paramSlug) return paramSlug.toLowerCase();
 
     // 3. Check localStorage for remembered tenant
-    const saved = localStorage.getItem('factflow_tenant_slug');
+    const saved = localStorage.getItem('compxflow_tenant_slug');
     if (saved) return saved;
 
     // 4. Fallback for local development

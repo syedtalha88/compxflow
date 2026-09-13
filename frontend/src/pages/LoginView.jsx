@@ -12,7 +12,7 @@ export function LoginView() {
 
   const [savedProfile, setSavedProfile] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem('factflow_saved_profile')) || null;
+      return JSON.parse(localStorage.getItem('compxflow_saved_profile')) || null;
     } catch (e) {
       return null;
     }
@@ -43,7 +43,7 @@ export function LoginView() {
       tenantName: tenantData.name,
       role: roleData
     };
-    localStorage.setItem('factflow_saved_profile', JSON.stringify(profile));
+    localStorage.setItem('compxflow_saved_profile', JSON.stringify(profile));
     setSavedProfile(profile);
   };
 
@@ -133,7 +133,7 @@ export function LoginView() {
   };
 
   const handleClearSavedAccount = () => {
-    localStorage.removeItem('factflow_saved_profile');
+    localStorage.removeItem('compxflow_saved_profile');
     setSavedProfile(null);
     setLoginMode('password');
     setEmail('');
@@ -145,12 +145,11 @@ export function LoginView() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans">
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-gray-100 p-6 space-y-5">
         {/* Brand Header */}
-        <div className="text-center space-y-1">
-          <div className="w-12 h-12 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center text-2xl mx-auto font-black shadow-inner">
-            ⚡
+        <div className="text-center space-y-2">
+          <div className="h-10 flex items-center justify-center mx-auto">
+            <img src="/logo-full.png" alt="CompXFlow" className="h-full object-contain" />
           </div>
-          <h1 className="text-xl font-black text-gray-900 tracking-tight">FactFlow</h1>
-          <p className="text-xs text-gray-500 font-semibold">Factory Operations & Billing System</p>
+          <p className="text-xs text-gray-500 font-semibold pt-1">Factory Operations & Billing System</p>
         </div>
 
         {/* Mode Selector */}
@@ -272,7 +271,7 @@ export function LoginView() {
                   className="w-full px-3 py-2.5 text-sm rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-primary focus:outline-none font-bold lowercase bg-white"
                   required
                 />
-                <span className="text-xs text-gray-400 font-bold ml-2 shrink-0">.factflow.app</span>
+                <span className="text-xs text-gray-400 font-bold ml-2 shrink-0">.compxflow.com</span>
               </div>
             </div>
 

@@ -1,22 +1,22 @@
 {
-  "name": "FactFlow",
-  "short_name": "FactFlow",
+  "name": "CompXFlow",
+  "short_name": "CompXFlow",
   "description": "Factory Invoice & Expense Tracking",
-  "theme_color": "#3D52A0",
+  "theme_color": "#1B2A4A",
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
   "start_url": ".",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/png"
     },
     {
-      "src": "/favicon.svg",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ]
 }

@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: 'factflow'
+      dbName: 'compxflow'
     });
     console.log(`MongoDB connected: ${conn.connection.host}`);
     return conn;

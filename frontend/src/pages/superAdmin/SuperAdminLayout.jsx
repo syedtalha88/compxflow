@@ -41,7 +41,7 @@ export default function SuperAdminLayout() {
               ⚡
             </div>
             <div>
-              <h1 className="text-base font-black text-white leading-tight">FactFlow</h1>
+              <h1 className="text-base font-black text-white leading-tight">CompXFlow</h1>
               <p className="text-[10px] text-violet-400 font-bold uppercase tracking-wider">Internal Panel</p>
             </div>
           </div>

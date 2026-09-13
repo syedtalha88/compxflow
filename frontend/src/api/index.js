@@ -315,7 +315,7 @@ export const downloadReportPdf = async (options = {}, slug = 'kaleem') => {
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `FactFlow_Report_${filenameDate}.pdf`;
+  a.download = `CompXFlow_Report_${filenameDate}.pdf`;
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -349,7 +349,7 @@ export const downloadReportExcel = async (options = {}, slug = 'kaleem') => {
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `FactFlow_Report_${filenameDate}.xlsx`;
+  a.download = `CompXFlow_Report_${filenameDate}.xlsx`;
   document.body.appendChild(a);
   a.click();
   a.remove();

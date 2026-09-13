@@ -62,7 +62,7 @@ export default function KeyEntryPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-violet-600/20 rounded-2xl mb-4">
             <span className="text-3xl">⚡</span>
           </div>
-          <h1 className="text-xl font-black text-white tracking-tight">FactFlow Internal</h1>
+          <h1 className="text-xl font-black text-white tracking-tight">CompXFlow Internal</h1>
           <p className="text-xs text-slate-500 font-medium mt-1">Platform Administration Panel</p>
         </div>
 

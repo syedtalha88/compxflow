@@ -4,7 +4,7 @@ import { loginUser, setAccessToken } from '../../api/index.js';
 export function LoginView({ onLoginSuccess }) {
   const [mode, setMode] = useState('email'); // 'email' | 'pin'
   const [slug, setSlug] = useState('kaleem');
-  const [email, setEmail] = useState('kaleem@factflow.app');
+  const [email, setEmail] = useState('kaleem@compxflow.com');
   const [password, setPassword] = useState('Password123!');
   const [pin, setPin] = useState('');
   const [userId, setUserId] = useState('');
@@ -37,10 +37,10 @@ export function LoginView({ onLoginSuccess }) {
 
   const handleQuickRole = (targetRole) => {
     if (targetRole === 'admin') {
-      setEmail('kaleem@factflow.app');
+      setEmail('kaleem@compxflow.com');
       setPassword('Password123!');
     } else {
-      setEmail('worker@factflow.app');
+      setEmail('worker@compxflow.com');
       setPassword('Password123!');
     }
   };
@@ -48,12 +48,11 @@ export function LoginView({ onLoginSuccess }) {
   return (
     <div className="max-w-sm mx-auto bg-neutral-card p-6 rounded-[12px] shadow-level-3 border border-neutral-border font-sans my-8 animate-in fade-in duration-200">
       {/* Brand Header */}
-      <div className="text-center mb-6">
-        <div className="w-12 h-12 bg-brand-primary/10 text-brand-primary font-black rounded-[10px] flex items-center justify-center text-2xl mx-auto mb-2">
-          F
+      <div className="text-center mb-8">
+        <div className="h-10 flex items-center justify-center mx-auto mb-3">
+          <img src="/logo-full.png" alt="CompXFlow" className="h-full object-contain" />
         </div>
-        <h2 className="text-[24px] font-black text-brand-primary">FactFlow</h2>
-        <p className="text-[13px] text-neutral-tertiary mt-1">Factory Invoice & Expense Tracking</p>
+        <p className="text-[13px] text-neutral-tertiary">Factory Invoice & Expense Tracking</p>
       </div>
 
       {/* Mode Switcher */}

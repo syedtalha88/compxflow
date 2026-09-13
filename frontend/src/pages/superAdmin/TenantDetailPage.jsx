@@ -108,7 +108,7 @@ export default function TenantDetailPage() {
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-2xl font-black text-slate-900">{tenant.name}</h1>
-            <p className="text-sm text-violet-600 font-semibold mt-0.5">{tenant.slug}.factflow.app</p>
+            <p className="text-sm text-violet-600 font-semibold mt-0.5">{tenant.slug}.compxflow.com</p>
           </div>
           <div className="flex items-center gap-2">
             <span className={`text-xs font-bold px-3 py-1 rounded-full ${

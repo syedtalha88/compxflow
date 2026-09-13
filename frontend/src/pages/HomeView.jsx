@@ -251,7 +251,7 @@ export function HomeView({ session, onLogout }) {
       {/* Top Header - Mobile Only */}
       <div className="bg-neutral-card p-4 rounded-[10px] border border-neutral-border shadow-level-1 flex justify-between items-center md:hidden">
         <div className="flex flex-col">
-          <h1 className="text-[18px] font-semibold text-neutral-primary truncate tracking-tight">FactFlow</h1>
+          <h1 className="text-[18px] font-semibold text-neutral-primary truncate tracking-tight">CompXFlow</h1>
           <span className="text-[13px] font-medium text-neutral-tertiary truncate">{session.tenant?.name || 'Factory'}</span>
         </div>
         <div className="flex items-center gap-2">
@@ -274,7 +274,7 @@ export function HomeView({ session, onLogout }) {
       {/* Desktop Dashboard Welcome Banner */}
       <div className="hidden md:flex items-center justify-between bg-neutral-card p-6 rounded-[10px] border border-neutral-border shadow-level-1">
         <div>
-          <h1 className="text-[24px] font-bold text-neutral-primary tracking-tight">FactFlow</h1>
+          <h1 className="text-[24px] font-bold text-neutral-primary tracking-tight">CompXFlow</h1>
           <p className="text-[14px] text-neutral-tertiary font-medium">{session.tenant?.name || 'Factory'}</p>
         </div>
         <div className="flex flex-col items-end">

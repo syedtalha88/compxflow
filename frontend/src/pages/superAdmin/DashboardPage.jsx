@@ -62,7 +62,7 @@ export default function DashboardPage() {
       {/* Page Header */}
       <div>
         <h1 className="text-2xl font-black text-slate-900">Platform Dashboard</h1>
-        <p className="text-sm text-slate-500 font-medium mt-1">High-level overview of the entire FactFlow platform</p>
+        <p className="text-sm text-slate-500 font-medium mt-1">High-level overview of the entire CompXFlow platform</p>
       </div>
 
       {/* Tenant Stats */}

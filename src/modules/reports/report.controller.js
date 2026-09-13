@@ -239,7 +239,7 @@ export const exportPdfReport = asyncHandler(async (req, res) => {
   const expenses = await Expense.find({ tenantId, date: { $gte: start, $lte: end } }).sort({ date: -1 }).limit(20).lean();
 
   const doc = new PDFDocument({ margin: 40 });
-  const filename = `FactFlow_Report_${start.toISOString().split('T')[0]}.pdf`;
+  const filename = `CompXFlow_Report_${start.toISOString().split('T')[0]}.pdf`;
 
   res.setHeader('Content-Type', 'application/pdf');
   res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
@@ -247,7 +247,7 @@ export const exportPdfReport = asyncHandler(async (req, res) => {
   doc.pipe(res);
 
   // Document Header
-  doc.fontSize(22).fillColor('#4338CA').text('FACTFLOW FINANCIAL REPORT', { align: 'center' });
+  doc.fontSize(22).fillColor('#4338CA').text('COMPXFLOW FINANCIAL REPORT', { align: 'center' });
   doc.fontSize(12).fillColor('#374151').text(`Tenant: ${tenantName}`, { align: 'center' });
   doc.fontSize(10).fillColor('#6B7280').text(`Period: ${start.toISOString().split('T')[0]} to ${end.toISOString().split('T')[0]}`, { align: 'center' });
   doc.moveDown(1.5);
@@ -329,7 +329,7 @@ export const exportExcelReport = asyncHandler(async (req, res) => {
   const expenses = await Expense.find({ tenantId, date: { $gte: start, $lte: end } }).lean();
 
   const workbook = new ExcelJS.Workbook();
-  workbook.creator = 'FactFlow SaaS System';
+  workbook.creator = 'CompXFlow SaaS System';
 
   // Sheet 1: Financial Summary
   const summarySheet = workbook.addWorksheet('Summary');
@@ -423,7 +423,7 @@ export const exportExcelReport = asyncHandler(async (req, res) => {
     imageUrl: exp.imageUrl || ''
   }));
 
-  const filename = `FactFlow_Report_${start.toISOString().split('T')[0]}.xlsx`;
+  const filename = `CompXFlow_Report_${start.toISOString().split('T')[0]}.xlsx`;
   res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
   res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
 

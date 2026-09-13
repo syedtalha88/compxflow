@@ -3,7 +3,7 @@ import { loginUser, extractOcr, getAccessToken } from '../../api/index.js';
 
 export function OcrTester() {
   const [slug, setSlug] = useState('kaleem');
-  const [email, setEmail] = useState('kaleem@factflow.app');
+  const [email, setEmail] = useState('kaleem@compxflow.com');
   const [password, setPassword] = useState('Password123!');
   const [isLoggedIn, setIsLoggedIn] = useState(Boolean(getAccessToken()));
   const [authMsg, setAuthMsg] = useState('');
@@ -81,7 +81,7 @@ export function OcrTester() {
       {/* Header */}
       <div className="border-b border-gray-100 pb-4 mb-6">
         <h2 className="text-xl font-bold text-primary flex items-center gap-2">
-          <span>📷</span> FactFlow OCR Tester (Phase 3)
+          <span>📷</span> CompXFlow OCR Tester (Phase 3)
         </h2>
         <p className="text-xs text-gray-500 mt-1">
           Upload handwritten factory bills -> Cloudinary stream -> Google Vision OCR -> Text Extraction

@@ -26,7 +26,7 @@ export function validateEnv() {
   }
 
   // Warn if JWT_SECRET looks like the example/default value
-  if (process.env.JWT_SECRET === 'factflow_super_secret_jwt_key_min_32_chars_long') {
+  if (process.env.JWT_SECRET === 'compxflow_super_secret_jwt_key_min_32_chars_long') {
     console.warn('⚠ WARNING: JWT_SECRET is set to the example value. Change it to a strong random secret for production.');
   }
 }

@@ -33,13 +33,11 @@ export function Sidebar() {
     <aside className="hidden md:flex flex-col w-64 bg-neutral-card border-r border-neutral-border h-screen sticky top-0 shrink-0 z-30 font-sans">
       {/* Brand Header */}
       <div className="p-6 border-b border-neutral-border flex items-center gap-3">
-        <div className="w-10 h-10 bg-brand-light text-brand-primary rounded-xl flex items-center justify-center text-xl font-black shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-          </svg>
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
+          <img src="/logo-icon.png" alt="CompXFlow" className="w-full h-full object-contain" />
         </div>
         <div className="overflow-hidden">
-          <h1 className="text-16px font-black text-neutral-primary leading-tight">FactFlow</h1>
+          <h1 className="text-16px font-black text-neutral-primary leading-tight">CompXFlow</h1>
           <p className="text-[12px] text-neutral-secondary font-semibold truncate capitalize mt-0.5">
             {tenant?.name || tenantSlug || 'Factory'}
           </p>
@@ -91,7 +89,7 @@ export function Sidebar() {
           </div>
           <div className="overflow-hidden text-left flex-1">
             <p className="text-[13px] font-bold text-neutral-primary truncate">{user?.email || 'User'}</p>
-            <p className="text-[11px] text-neutral-tertiary font-medium truncate">{tenantSlug}.factflow.app</p>
+            <p className="text-[11px] text-neutral-tertiary font-medium truncate">{tenantSlug}.compxflow.com</p>
           </div>
         </div>
 
