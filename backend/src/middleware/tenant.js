@@ -24,15 +24,15 @@ export const tenantMiddleware = asyncHandler(async (req, res, next) => {
   if (!slug && req.headers.host) {
     const host = req.headers.host.split(':')[0]; // remove port
     const isIP = /^\d+\.\d+\.\d+\.\d+$/.test(host) || host === 'localhost';
-    
+
     // Check if this is a platform domain (not a tenant subdomain)
     const isPlatformDomain = PLATFORM_DOMAINS.some(pd => host.endsWith(pd));
-    
+
     if (!isIP && !isPlatformDomain) {
       const parts = host.split('.');
       // E.g. kaleem.factflow.app -> parts = ['kaleem', 'factflow', 'app']
       // Avoid resolving localhost or main domain as tenant
-      if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'app') {
+      if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'app' && parts[0] !== 'kaleem') {
         slug = parts[0].toLowerCase();
       }
     }

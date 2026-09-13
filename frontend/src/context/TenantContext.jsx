@@ -7,12 +7,12 @@ export function TenantProvider({ children }) {
     // 1. Check subdomain from window.location.hostname
     const host = window.location.hostname;
     const parts = host.split('.');
-    
+
     // Don't extract subdomain from platform domains (e.g. indigo-eagle-118056.hostingersite.com)
     const platformDomains = ['hostingersite.com', 'herokuapp.com', 'vercel.app', 'netlify.app'];
     const isPlatformDomain = platformDomains.some(pd => host.endsWith(pd));
-    
-    if (!isPlatformDomain && parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'app' && parts[0] !== 'localhost') {
+
+    if (!isPlatformDomain && parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'app' && parts[0] !== 'kaleem' && parts[0] !== 'localhost') {
       return parts[0].toLowerCase();
     }
 

@@ -38,10 +38,10 @@ api.interceptors.request.use(
       // Don't extract subdomain from platform domains
       const platformDomains = ['hostingersite.com', 'herokuapp.com', 'vercel.app', 'netlify.app'];
       const isPlatformDomain = platformDomains.some(pd => hostname.endsWith(pd));
-      
+
       if (!isIP && !isPlatformDomain) {
         const parts = hostname.split('.');
-        if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'app') {
+        if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'api' && parts[0] !== 'app' && parts[0] !== 'kaleem') {
           config.headers['x-tenant-slug'] = parts[0].toLowerCase();
         }
       }
